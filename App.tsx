@@ -6,13 +6,9 @@ import FontAwesome from 'react-native-vector-icons/FontAwesome';
 import HomeScreen from './screens/HomeScreen';
 import SnapScreen from './screens/SnapScreen';
 import GalleryScreen from './screens/GalleryScreen';
-
-// redux imports
 import { Provider } from 'react-redux';
 import { combineReducers, configureStore } from '@reduxjs/toolkit';
 import user from './reducers/user';
-
-// redux-persist imports
 import { persistStore, persistReducer } from 'redux-persist';
 import { PersistGate } from 'redux-persist/integration/react';
 import AsyncStorage from '@react-native-async-storage/async-storage';
@@ -22,14 +18,11 @@ const persistConfig = {
   key: 'faceup',
   storage: AsyncStorage,
 };
-
 const store = configureStore({
   reducer: persistReducer(persistConfig, reducers),
   middleware: (getDefaultMiddleware: any) => getDefaultMiddleware({ serializableCheck: false }),
-});
-
+})
 const persistor = persistStore(store);
-
 const Stack = createNativeStackNavigator();
 const Tab = createBottomTabNavigator();
 

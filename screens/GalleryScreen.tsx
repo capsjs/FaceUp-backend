@@ -14,7 +14,6 @@ export default function GalleryScreen() {
         <TouchableOpacity onPress={() => dispatch(removePhoto(data))}>
           <FontAwesome name='times' size={20} color='#000000' style={styles.deleteIcon} />
         </TouchableOpacity>
-
         <Image source={{ uri: data }} style={styles.photo} />
       </View>
     );

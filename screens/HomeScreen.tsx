@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { Image, ImageBackground, KeyboardAvoidingView, keyboardAvoindingView, Platform, StyleSheet, Text, TextInput, TouchableOpacity, View } from 'react-native';
+import { Image, ImageBackground, KeyboardAvoidingView, Platform, StyleSheet, Text, TextInput, TouchableOpacity, View } from 'react-native';
 import { useDispatch, useSelector } from 'react-redux';
 import { updateEmail, UserState } from '../reducers/user';
 import { NavigationProp, ParamListBase } from '@react-navigation/native';
@@ -11,6 +11,7 @@ type HomeScreenProps = {
 };
 
 export default function HomeScreen({ navigation }: HomeScreenProps) {
+  
   const dispatch = useDispatch();
   const user = useSelector((state: { user: UserState }) => state.user.value);
 
@@ -18,7 +19,7 @@ export default function HomeScreen({ navigation }: HomeScreenProps) {
   const [emailError, setEmailError] = useState(false);
 
   useEffect(() => {
-    user.email && navigation.navigate('TabNavigator', { screen: 'Gallery'});
+    user.email && navigation.navigate('TabNavigator', { screen: 'Gallery' });
    }, []);
 
    const handleSubmit = () => {
